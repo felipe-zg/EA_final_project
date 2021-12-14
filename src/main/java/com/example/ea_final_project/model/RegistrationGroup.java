@@ -19,6 +19,8 @@ public class RegistrationGroup {
     private Collection<AcademicBlock> blocks = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Collection<Student> students = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private Collection<RegistrationEvent> registrationEvents = new ArrayList<>();
 
     public void addStudent(Student student) {
         if(!this.students.contains(student)) {

@@ -35,7 +35,8 @@ public class StudentController {
         Student persistedStudent = service.findById(student.getId());
         if (persistedStudent != null) {
             persistedStudent.setStudentId(student.getStudentId());
-            persistedStudent.setName(student.getName());
+            persistedStudent.setFirstname(student.getFirstname());
+            persistedStudent.setLastname(student.getLastname());
             persistedStudent.setEmail(student.getEmail());
             return service.update(persistedStudent);
         }
