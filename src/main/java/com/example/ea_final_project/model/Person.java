@@ -19,10 +19,7 @@ public class Person {
     private String lastname;
     private String email;
     private String password;
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private Address homeAddress;
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    private Address billingAddress;
+
 
 
 }

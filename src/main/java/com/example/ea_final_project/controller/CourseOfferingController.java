@@ -37,6 +37,7 @@ public class CourseOfferingController {
             persistedCourseOffer.setCapacity(courseOffer.getCapacity());
             persistedCourseOffer.setCourse(courseOffer.getCourse());
             persistedCourseOffer.setBlock(courseOffer.getBlock());
+            persistedCourseOffer.setFaculty(courseOffer.getFaculty());
             persistedCourseOffer.setAvailableSeats(courseOffer.getAvailableSeats());
             return service.update(persistedCourseOffer);
         }

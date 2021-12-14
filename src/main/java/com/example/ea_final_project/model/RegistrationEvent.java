@@ -24,7 +24,7 @@ public class RegistrationEvent {
             joinColumns = {@JoinColumn(name = "RegistrationEvent_id")},
             inverseJoinColumns = {@JoinColumn(name = "RegistrationGroup_id")}
     )
-    private Collection<RegistrationGroup> registrationGroup=new ArrayList<>();
+    private Collection<RegistrationGroup> registrationGroups=new ArrayList<>();
 
 
 }

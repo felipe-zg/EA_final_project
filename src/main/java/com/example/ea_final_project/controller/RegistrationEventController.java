@@ -29,7 +29,7 @@ public class RegistrationEventController {
         return service.create(registrationEvent);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public RegistrationEvent update(@PathVariable Integer id, @RequestBody RegistrationEvent registrationEvent) {
         RegistrationEvent persistedEvent = service.findById(registrationEvent.getId());
         if (persistedEvent != null) {

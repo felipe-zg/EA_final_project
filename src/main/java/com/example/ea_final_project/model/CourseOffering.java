@@ -15,9 +15,9 @@ public class CourseOffering {
     private String code;
     private int capacity;
     private int availableSeats;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Course course;
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Faculty faculty;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private AcademicBlock block;

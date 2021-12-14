@@ -17,21 +17,21 @@ public class RegistrationGroup {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Collection<AcademicBlock> blocks = new ArrayList<>();
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private Collection<Student> students = new ArrayList<>();
+//    @ManyToMany(cascade = CascadeType.PERSIST)
+//    private Collection<Student> students = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Collection<RegistrationEvent> registrationEvents = new ArrayList<>();
 
-    public void addStudent(Student student) {
-        if(!this.students.contains(student)) {
-            this.students.add(student);
-        }
-    }
+//    public void addStudent(Student student) {
+//        if(!this.students.contains(student)) {
+//            this.students.add(student);
+//        }
+//    }
 
-    public void addAcademicBlock(AcademicBlock block) {
-        if (!this.blocks.contains(block)) {
-            this.blocks.add(block);
-        }
-    }
+//    public void addAcademicBlock(AcademicBlock block) {
+//        if (!this.blocks.contains(block)) {
+//            this.blocks.add(block);
+//        }
+//    }
 
     }

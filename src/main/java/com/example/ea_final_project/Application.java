@@ -14,14 +14,22 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 public class Application implements ApplicationRunner {
-    @Autowired AddressService addressService;
-    @Autowired StudentService studentService;
-    @Autowired  CourseService courseService;
-    @Autowired FacultyService facultyService;
-    @Autowired AcademicBlockService blockService;
-    @Autowired RegistrationGroupService registrationGroupService;
-    @Autowired CourseOfferingService courseOfferingService;
-    @Autowired RegistrationService registrationService;
+    @Autowired
+    AddressService addressService;
+    @Autowired
+    StudentService studentService;
+    @Autowired
+    CourseService courseService;
+    @Autowired
+    FacultyService facultyService;
+    @Autowired
+    AcademicBlockService blockService;
+    @Autowired
+    RegistrationGroupService registrationGroupService;
+    @Autowired
+    CourseOfferingService courseOfferingService;
+    @Autowired
+    RegistrationService registrationService;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

@@ -35,8 +35,8 @@ public class AddressController {
             persistedAddress.setStreet(address.getStreet());
             persistedAddress.setCity(address.getCity());
             persistedAddress.setPostalCode(address.getPostalCode());
-            persistedAddress.setState(address.getState());
-            persistedAddress.setCountry(address.getCountry());
+           persistedAddress.setState(address.getState());
+           persistedAddress.setCountry(address.getCountry());
             return service.update(persistedAddress);
         }
         return address;
