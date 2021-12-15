@@ -21,8 +21,7 @@ public class AcademicBlockController {
 
     @GetMapping("/{id}")
     public AcademicBlock findById(@PathVariable Integer id) {
-        System.out.println(id);
-        return service.findAll().get(0);
+        return service.findById(id);
     }
 
     @PostMapping
