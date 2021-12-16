@@ -8,9 +8,9 @@ spring:
       name: app-user #default security user
       password: 123456 #default security password
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/ea-project #change to your database port and name
+    url: jdbc:mysql://127.0.0.1:3306/cs544 #change to your database port and name
     username: root #change to your database user
-    password: root #change to your database password
+    password: T1la@mysql #change to your database password
     driverClassName: com.mysql.cj.jdbc.Driver
     hikari:
       maximumPoolSize: 10

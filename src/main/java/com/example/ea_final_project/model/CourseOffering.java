@@ -20,7 +20,7 @@ public class CourseOffering {
     @ManyToOne(cascade = CascadeType.MERGE)
     private Faculty faculty;
     @ManyToOne(cascade = CascadeType.PERSIST)
-    private AcademicBlock block;
+        private AcademicBlock block;
 
     public CourseOffering(String code, int capacity, Course course, Faculty faculty, AcademicBlock block) {
         this.code = code;

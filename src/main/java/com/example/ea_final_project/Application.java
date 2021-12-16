@@ -12,6 +12,15 @@ import org.springframework.context.ApplicationContext;
 
 import java.time.LocalDate;
 
+
+class RegistrationEventComparator implements Comparable<RegistrationEvent> {
+
+    @Override
+    public int compareTo(RegistrationEvent o) {
+        return 0;
+    }
+}
+
 @SpringBootApplication
 public class Application implements ApplicationRunner {
     @Autowired

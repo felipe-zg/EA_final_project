@@ -6,6 +6,8 @@ import com.example.ea_final_project.service.RegistrationEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -14,6 +16,13 @@ public class RegistrationEventController {
     @Autowired
     RegistrationEventService service;
 
+    public class RegistrationEventComparator implements Comparator<RegistrationEvent> {
+        @Override
+        public int compare(RegistrationEvent o1, RegistrationEvent o2) {
+            return o2.getStartDate().compareTo(o1.getStartDate());
+        }
+    }
+
     @GetMapping
     public List<RegistrationEvent> findAll() {
         return service.findAll();
@@ -21,7 +30,9 @@ public class RegistrationEventController {
 
     @GetMapping("/{id}")
     public RegistrationEvent findById(@PathVariable Integer id) {
-        return service.findById(id);
+        List<RegistrationEvent> events = service.findAll();
+        Collections.sort(events, new RegistrationEventComparator());
+        return events.get(0);
     }
 
     @PostMapping
