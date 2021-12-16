@@ -28,7 +28,14 @@ public class CourseService implements ICourseService{
     }
 
     @Override
-    public Course update(Course course) {
-        return repository.save(course);
+    public Course update(Integer id, Course course) {
+        Course persistedCourse = findById(course.getId());
+        if (persistedCourse != null) {
+            persistedCourse.setName(course.getName());
+            persistedCourse.setCode(course.getCode());
+            persistedCourse.setDescription(course.getDescription());
+            return repository.save(persistedCourse);
+        }
+        return  course;
     }
 }

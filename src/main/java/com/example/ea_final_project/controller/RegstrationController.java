@@ -75,7 +75,7 @@ public class RegstrationController {
             for (RegistrationRequest r : selectedRequest) {
                 RegistrationRequest req = registrationRequestService.findById(r.getId());
                 req.setStatus(Status.RGISTERED);
-                registrationRequestService.update(req);
+                registrationRequestService.update(req.getId(), req);
                 Registration registration= new Registration();
                 registration.setCourseOffering(co);
                 registration.setStudent(r.getStudent());

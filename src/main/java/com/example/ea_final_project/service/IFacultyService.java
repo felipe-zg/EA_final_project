@@ -8,5 +8,5 @@ public interface IFacultyService {
     public List<Faculty> findAll();
     public Faculty findById(Integer id) ;
     public Faculty create(Faculty faculty);
-    public Faculty update(Faculty manufacturer);
+    public Faculty update(Integer id, Faculty faculty);
 }

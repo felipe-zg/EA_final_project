@@ -9,7 +9,7 @@ public interface IRegistrationEventService {
      List<RegistrationEvent> findAll();
      RegistrationEvent findById(Integer id) ;
      RegistrationEvent create(RegistrationEvent registrationEvent);
-     RegistrationEvent update(RegistrationEvent registrationEvent);
+     RegistrationEvent update(Integer id, RegistrationEvent registrationEvent);
      void deleteById(Integer eventId);
 
      RegistrationEvent findFirstEvent();

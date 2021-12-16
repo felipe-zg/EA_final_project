@@ -28,8 +28,16 @@ public class FacultyService implements IFacultyService{
     }
 
     @Override
-    public Faculty update(Faculty manufacturer) {
-        return repository.save(manufacturer);
+    public Faculty update(Integer id, Faculty faculty) {
+        Faculty persistedFaculty = findById(faculty.getId());
+        if (persistedFaculty != null) {
+            persistedFaculty.setFirstname(faculty.getFirstname());
+            persistedFaculty.setLastname(faculty.getLastname());
+            persistedFaculty.setEmail(faculty.getEmail());
+            persistedFaculty.setTitle(faculty.getTitle());
+            return repository.save(persistedFaculty);
+        }
+        return faculty;
     }
 
 }

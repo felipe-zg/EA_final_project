@@ -8,5 +8,5 @@ public interface IAcademicBlockService {
      AcademicBlock create(AcademicBlock academicBlock);
      List<AcademicBlock> findAll();
      AcademicBlock findById(Integer id) ;
-     AcademicBlock update(AcademicBlock academicBlock);
+     AcademicBlock update(Integer id, AcademicBlock academicBlock);
 }

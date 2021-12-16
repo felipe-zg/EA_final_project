@@ -29,7 +29,16 @@ public class AcademicBlockService implements IAcademicBlockService{
     }
 
     @Override
-    public AcademicBlock update(AcademicBlock academicBlock) {
-        return repository.save(academicBlock);
-    }
+    public AcademicBlock update(Integer id, AcademicBlock academicBlock) {
+        AcademicBlock persistedAcademicBlock = findById(id);
+        if (persistedAcademicBlock != null) {
+            persistedAcademicBlock.setCode(academicBlock.getCode());
+            persistedAcademicBlock.setName(academicBlock.getName());
+            persistedAcademicBlock.setSemester(academicBlock.getSemester());
+            persistedAcademicBlock.setStartDate(academicBlock.getStartDate());
+            persistedAcademicBlock.setEnddate(academicBlock.getEnddate());
+            return repository.save(academicBlock);
+        }
+        return academicBlock;
+    };
 }

@@ -36,17 +36,6 @@ public class CourseOfferingController {
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('STUDENT') or hasRole('ADMIN')")
     public CourseOffering update(@PathVariable Integer id, @RequestBody CourseOffering courseOffer) {
-        CourseOffering persistedCourseOffer = service.findById(courseOffer.getId());
-        if (persistedCourseOffer != null) {
-            persistedCourseOffer.setCode(courseOffer.getCode());
-            persistedCourseOffer.setCapacity(courseOffer.getCapacity());
-            persistedCourseOffer.setCourse(courseOffer.getCourse());
-            persistedCourseOffer.setBlock(courseOffer.getBlock());
-            persistedCourseOffer.setFaculty(courseOffer.getFaculty());
-           // persistedCourseOffer.setAvailableSeats(courseOffer.getAvailableSeats());
-            return service.update(persistedCourseOffer);
-        }
-
-        return  courseOffer;
+       return service.update(id, courseOffer);
     }
 }

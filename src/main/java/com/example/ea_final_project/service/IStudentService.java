@@ -9,6 +9,6 @@ public interface IStudentService {
     public List<Student> findAll();
     public Student findById(Integer id) ;
     public Student create(Student student);
-    public Student update(Student student);
+    public Student update(Integer id, Student student);
     List<Student >getStudentsByGroup(int id);
 }

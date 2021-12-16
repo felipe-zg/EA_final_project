@@ -9,7 +9,7 @@ public interface IRegistrationRequestService {
      List<RegistrationRequest> findAll();
      RegistrationRequest findById(Integer id) ;
      RegistrationRequest create(RegistrationRequest registrationRequest);
-     RegistrationRequest update(RegistrationRequest request);
+     RegistrationRequest update(Integer id, RegistrationRequest request);
      RegistrationRequest getRegistrationRequestById(int id);
      List<RegistrationRequest> getRegistrationRequestBySdudentId(int id);
      List<RegistrationRequest> getRegistrationRequestByStudentIdAndBlockId(int studentId,int blockId);

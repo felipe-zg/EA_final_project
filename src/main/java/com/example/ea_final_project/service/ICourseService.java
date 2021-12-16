@@ -9,5 +9,5 @@ public interface ICourseService {
      Course create(Course course);
      List<Course> findAll();
      Course findById(Integer id) ;
-     Course update(Course course);
+     Course update(Integer id, Course course);
 }
