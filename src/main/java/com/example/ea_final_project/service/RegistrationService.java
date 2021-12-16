@@ -47,14 +47,14 @@ public class RegistrationService implements IRegistrationService{
         repository.deleteById(id);
     }
 
-    @Override
-    public List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id) {
-        return repository.getRegistrationRequestByCourseOfferingId(id);
-    }
-
-    @Override
-    public List<Registration> getRegistrationByStudentId(int id) {
-        return repository.getRegistrationByStudentId(id);
-    }
+//    @Override
+//    public List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id) {
+//        return repository.getRegistrationRequestByCourseOfferingId(id);
+//    }
+//
+//    @Override
+//    public List<Registration> getRegistrationByStudentId(int id) {
+//        return repository.getRegistrationByStudentId(id);
+//    }
 
 }

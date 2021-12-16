@@ -37,8 +37,10 @@ public class AcademicBlockService implements IAcademicBlockService{
             persistedAcademicBlock.setSemester(academicBlock.getSemester());
             persistedAcademicBlock.setStartDate(academicBlock.getStartDate());
             persistedAcademicBlock.setEnddate(academicBlock.getEnddate());
-            return repository.save(academicBlock);
+            return repository.save(persistedAcademicBlock);
         }
-        return academicBlock;
-    };
+
+        return null;
+    }
+
 }

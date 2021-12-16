@@ -16,8 +16,8 @@ public interface IRegistrationService {
     public Registration update(Integer id, Registration registration);
 
     public void deleteById(Integer id);
-    List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id);
-    List<Registration> getRegistrationByStudentId(int id);
+//    List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id);
+//    List<Registration> getRegistrationByStudentId(int id);
 
 
 }
