@@ -10,5 +10,7 @@ public interface IRegistrationEventService {
      RegistrationEvent findById(Integer id) ;
      RegistrationEvent create(RegistrationEvent registrationEvent);
      RegistrationEvent update(RegistrationEvent registrationEvent);
-     // RegistrationEvent delete(RegistrationEvent registrationEvent);
+     void deleteById(Integer eventId);
+
+     RegistrationEvent findFirstEvent();
 }

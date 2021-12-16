@@ -244,7 +244,7 @@ public class FakerController {
         List<AcademicBlock> academicBlocks = academicBlockService.findAll();
        // List<Student> students = studentService.findAll();
         for (int i = 0; i < academicBlocks.size(); i++) {
-
+            List <RegistrationRequest> registrationRequests= registrationRequestService.findAll();
             for (int j = 0; j < courses.size(); j++) {
                 Random r = new Random();
                 int k = r.nextInt(faculties.size());
@@ -257,6 +257,7 @@ public class FakerController {
                     courseOffering.setFaculty(faculties.get(k));
                     courseOffering.setCourse(courses.get(j));
                     courseOffering.setBlock(academicBlocks.get(i));
+                    courseOffering.setRegistrationsRequests(registrationRequests);
                     courseOffering.setCapacity(30);
                    // RegistrationRequest request = new RegistrationRequest();
                     courseOfferingService.create(courseOffering);

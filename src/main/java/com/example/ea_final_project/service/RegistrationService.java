@@ -1,11 +1,13 @@
 package com.example.ea_final_project.service;
 
 import com.example.ea_final_project.model.Registration;
+import com.example.ea_final_project.model.RegistrationRequest;
 import com.example.ea_final_project.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class RegistrationService implements IRegistrationService{
@@ -36,6 +38,16 @@ public class RegistrationService implements IRegistrationService{
     @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id) {
+        return repository.getRegistrationRequestByCourseOfferingId(id);
+    }
+
+    @Override
+    public List<Registration> getRegistrationByStudentId(int id) {
+        return repository.getRegistrationByStudentId(id);
     }
 
 }
