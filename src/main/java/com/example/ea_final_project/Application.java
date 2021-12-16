@@ -9,6 +9,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
 
@@ -22,9 +23,10 @@ class RegistrationEventComparator implements Comparable<RegistrationEvent> {
 }
 
 @SpringBootApplication
+
 public class Application implements ApplicationRunner {
-    @Autowired
-    AddressService addressService;
+//    @Autowired
+//    AddressService addressService;
     @Autowired
     StudentService studentService;
     @Autowired
@@ -49,7 +51,7 @@ public class Application implements ApplicationRunner {
 
 //        State state = new State("Iowa");
 //        Country country = new Country("United States");
-//        Address address = new Address("1000 N 4th St", "Fairfield", "52557", state, country);
+//       Address address = new Address("1000 N 4th St", "Fairfield", "52557", state, country);
 //        addressService.create(address);
 //
 //        Student student = new Student("5635625", "John", "john@gmail.com", address, address);

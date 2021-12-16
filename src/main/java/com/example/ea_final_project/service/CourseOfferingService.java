@@ -1,6 +1,7 @@
 package com.example.ea_final_project.service;
 
 import com.example.ea_final_project.model.CourseOffering;
+import com.example.ea_final_project.model.Student;
 import com.example.ea_final_project.repository.CourseOfferingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,11 @@ public class CourseOfferingService implements ICourseOfferingService{
     public CourseOffering update(CourseOffering course) {
         return repository.save(course);
     }
+
+    @Override
+    public List<CourseOffering> getCourseOfferingByBlock(int id) {
+        return repository.getCourseOfferingByBlock(id);
+    }
+
+
 }
