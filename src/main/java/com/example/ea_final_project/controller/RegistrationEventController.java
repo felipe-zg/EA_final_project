@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/registrationevents")
+@RequestMapping("/registration-events/latest")
 public class RegistrationEventController {
     @Autowired
     RegistrationEventService service;
