@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,16 +16,16 @@ import java.util.Collection;
 @AllArgsConstructor
 public class RegistrationEvent {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private LocalDate startDate;
     private LocalDate endDate;
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany
     @JoinTable(
             joinColumns = {@JoinColumn(name = "RegistrationEvent_id")},
             inverseJoinColumns = {@JoinColumn(name = "RegistrationGroup_id")}
     )
-    private Collection<RegistrationGroup> registrationGroups=new ArrayList<>();
+    private List<RegistrationGroup> registrationGroups=new ArrayList<>();
 
 
 }

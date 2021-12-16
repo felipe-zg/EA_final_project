@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 public class Registration {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @ManyToOne(cascade = CascadeType.PERSIST)
     private CourseOffering courseOffering;
