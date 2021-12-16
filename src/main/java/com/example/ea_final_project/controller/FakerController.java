@@ -6,6 +6,7 @@ import com.example.ea_final_project.model.utils.Status;
 import com.example.ea_final_project.service.*;
 import com.github.javafaker.Faker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ import java.util.Random;
 
 
 @RestController
-@RequestMapping("/faker")
+@RequestMapping("/api/faker")
 public class FakerController {
     @Autowired
     CourseService courseService;
@@ -45,6 +46,7 @@ public class FakerController {
     AcademicBlockService academicBlockService;
 
     @GetMapping
+    @PreAuthorize("hasRole('STUDENT') or hasRole('ADMIN')")
     public void addData() {
         fakerAcademicBlock();
         fakerCourse();
@@ -54,7 +56,7 @@ public class FakerController {
 
         fakerStudent();
         fakerCourseOffering();
-        fakerRegistrationRequest();
+//        fakerRegistrationRequest();
         // fakerRegistrationRequest1();
     }
 
@@ -66,7 +68,7 @@ public class FakerController {
 
         for (int i = 0; i < entry.length; i++) {
             RegistrationGroup regGroup = new RegistrationGroup();
-            regGroup.setGroupName(entry[i] + " " + LocalDate.now().getYear());
+//            regGroup.setGroupName(entry[i] + " " + LocalDate.now().getYear());
             regGroup.setBlocks(acadamicBlocks);
             registrationGroupService.create(regGroup);
         }
