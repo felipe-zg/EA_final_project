@@ -13,9 +13,9 @@ import java.util.List;
 @Entity
 public class RegistrationGroup {
     @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private  String groupName;
+    private String groupName;
     @Transient
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<AcademicBlock> blocks = new ArrayList<>();
@@ -38,4 +38,4 @@ public class RegistrationGroup {
 //        }
 //    }
 
-    }
+}

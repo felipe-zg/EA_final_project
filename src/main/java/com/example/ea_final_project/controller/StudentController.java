@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/students")
 public class StudentController {
     @Autowired
     StudentService service;
@@ -22,26 +22,30 @@ public class StudentController {
     RegistrationEventService registrationEventService;
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Student> findAll() {
         return service.findAll();
     }
 
-    @GetMapping("/students/{id}")
+    @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Student findById(@PathVariable Integer id) {
         return service.findById(id);
     }
+
     @GetMapping("registration-events/latest")
     public List<RegistrationEvent> getLatestRegistrationEvents() {
         return registrationEventService.findAll();
     }
 
-
-    @PostMapping("/students")
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public Student create(@RequestBody Student student) {
         return service.create(student);
     }
 
-    @PatchMapping("/students/{id}")
+    @PatchMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public Student update(@PathVariable Integer id, @RequestBody Student student) {
         Student persistedStudent = service.findById(student.getId());
         if (persistedStudent != null) {
@@ -53,5 +57,4 @@ public class StudentController {
         }
         return student;
     }
-
 }
