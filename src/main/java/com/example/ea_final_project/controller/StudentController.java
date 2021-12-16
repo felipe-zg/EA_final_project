@@ -15,9 +15,6 @@ import java.util.List;
 public class StudentController {
     @Autowired
     StudentService service;
-
-    @Autowired
-    RegistrationEventService registrationEventService;
     
     @GetMapping
     public List<Student> findAll() {
