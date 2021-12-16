@@ -5,32 +5,34 @@ import com.example.ea_final_project.model.Student;
 import com.example.ea_final_project.service.FacultyService;
 import com.example.ea_final_project.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/students")
+@RequestMapping("/api")
 public class StudentController {
     @Autowired
     StudentService service;
 
-    @GetMapping
+    @GetMapping("/students")
+    @PreAuthorize("hasRole('ADMIN')")
     public List<Student> findAll() {
         return service.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/students/{id}")
     public Student findById(@PathVariable Integer id) {
         return service.findById(id);
     }
 
-    @PostMapping
+    @PostMapping("/students")
     public Student create(@RequestBody Student student) {
         return service.create(student);
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping("/students/{id}")
     public Student update(@PathVariable Integer id, @RequestBody Student student) {
         Student persistedStudent = service.findById(student.getId());
         if (persistedStudent != null) {
