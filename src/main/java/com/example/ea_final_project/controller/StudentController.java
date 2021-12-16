@@ -16,8 +16,10 @@ public class StudentController {
     @Autowired
     StudentService service;
 
-    @GetMapping("/students")
-    @PreAuthorize("hasRole('ADMIN')")
+    @Autowired
+    RegistrationEventService registrationEventService;
+    
+    @GetMapping
     public List<Student> findAll() {
         return service.findAll();
     }
