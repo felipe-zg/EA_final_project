@@ -26,7 +26,6 @@ public interface RegistrationRepository extends JpaRepository<Registration, Inte
     @Query("from Registration reg  where reg.student.id=:id ")
     List<Registration> getRegistrationByStudentId(int id);
 
-  //  @Query("select count(*) from Registration reg  reg.student.id")
-    List<Registration> getAvailableSeat(int id);
-
+//    @Query("select count(*) from Registration reg  reg.student.id")
+//    List<Registration> getAvailableSeat(int id);
 }
