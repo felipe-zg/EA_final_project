@@ -36,14 +36,6 @@ public class CourseController {
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Course update(@PathVariable Integer id, @RequestBody Course course) {
-        Course persistedCourse = service.findById(course.getId());
-        if (persistedCourse != null) {
-            persistedCourse.setName(course.getName());
-            persistedCourse.setCode(course.getCode());
-            persistedCourse.setDescription(course.getDescription());
-            return service.update(persistedCourse);
-        }
-
-        return  course;
+        return service.update(id, course);
     }
 }

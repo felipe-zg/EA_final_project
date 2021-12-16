@@ -27,8 +27,18 @@ public class RegistrationEventService implements IRegistrationEventService{
     }
 
     @Override
-    public RegistrationEvent update(RegistrationEvent registrationEvent) {
-        return eventRepository.save(registrationEvent);
+    public RegistrationEvent update(Integer id, RegistrationEvent registrationEvent) {
+        RegistrationEvent persistedEvent = findById(registrationEvent.getId());
+        if (persistedEvent != null) {
+            if (registrationEvent.getStartDate() != null){
+                persistedEvent.setStartDate(registrationEvent.getStartDate());
+            }
+            if(registrationEvent.getEndDate()!=null){
+                persistedEvent.setEndDate(registrationEvent.getEndDate());
+            }
+            return repository.save(persistedEvent);
+        }
+        return registrationEvent;
     }
 
     @Override

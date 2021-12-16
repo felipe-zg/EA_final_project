@@ -29,8 +29,19 @@ public class CourseOfferingService implements ICourseOfferingService{
     }
 
     @Override
-    public CourseOffering update(CourseOffering course) {
-        return repository.save(course);
+    public CourseOffering update(Integer id, CourseOffering courseOffer) {
+        CourseOffering persistedCourseOffer = findById(courseOffer.getId());
+        if (persistedCourseOffer != null) {
+            persistedCourseOffer.setCode(courseOffer.getCode());
+            persistedCourseOffer.setCapacity(courseOffer.getCapacity());
+            persistedCourseOffer.setCourse(courseOffer.getCourse());
+            persistedCourseOffer.setBlock(courseOffer.getBlock());
+            persistedCourseOffer.setFaculty(courseOffer.getFaculty());
+            // persistedCourseOffer.setAvailableSeats(courseOffer.getAvailableSeats());
+            return repository.save(persistedCourseOffer);
+        }
+
+        return  courseOffer;
     }
 
     @Override

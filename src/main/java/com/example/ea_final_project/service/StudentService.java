@@ -29,8 +29,16 @@ public class StudentService implements IStudentService{
     }
 
     @Override
-    public Student update(Student student) {
-        return repository.save(student);
+    public Student update(Integer id, Student student) {
+        Student persistedStudent = findById(student.getId());
+        if (persistedStudent != null) {
+            persistedStudent.setStudentId(student.getStudentId());
+            persistedStudent.setFirstname(student.getFirstname());
+            persistedStudent.setLastname(student.getLastname());
+            persistedStudent.setEmail(student.getEmail());
+            return repository.save(persistedStudent);
+        }
+        return student;
     }
 
     @Override

@@ -35,14 +35,6 @@ public class FacultyController {
     @PatchMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Faculty update(@PathVariable Integer id, @RequestBody Faculty faculty) {
-        Faculty persistedFaculty = service.findById(faculty.getId());
-        if (persistedFaculty != null) {
-            persistedFaculty.setFirstname(faculty.getFirstname());
-            persistedFaculty.setLastname(faculty.getLastname());
-            persistedFaculty.setEmail(faculty.getEmail());
-            persistedFaculty.setTitle(faculty.getTitle());
-            return service.update(persistedFaculty);
-        }
-        return faculty;
+       return service.update(id, faculty);
     }
 }

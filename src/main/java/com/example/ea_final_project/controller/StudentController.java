@@ -47,14 +47,6 @@ public class StudentController {
     @PatchMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public Student update(@PathVariable Integer id, @RequestBody Student student) {
-        Student persistedStudent = service.findById(student.getId());
-        if (persistedStudent != null) {
-            persistedStudent.setStudentId(student.getStudentId());
-            persistedStudent.setFirstname(student.getFirstname());
-            persistedStudent.setLastname(student.getLastname());
-            persistedStudent.setEmail(student.getEmail());
-            return service.update(persistedStudent);
-        }
-        return student;
+       return service.update(id, student);
     }
 }

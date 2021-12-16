@@ -59,6 +59,8 @@ public class RegstrationController {
         return service.update(id, registration);
     }
 
+
+
 //    @GetMapping("/process")
 //    public String processReqistrationRequest() {
 //        List<CourseOffering> courseOfferingList = courseOfferingService.findAll();
@@ -86,4 +88,5 @@ public class RegstrationController {
 //        return "Registered!!";
 //
 //    }
+
 }

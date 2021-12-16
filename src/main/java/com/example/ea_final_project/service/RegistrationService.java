@@ -2,6 +2,7 @@ package com.example.ea_final_project.service;
 
 import com.example.ea_final_project.model.Registration;
 import com.example.ea_final_project.model.RegistrationRequest;
+import com.example.ea_final_project.model.Student;
 import com.example.ea_final_project.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +33,13 @@ public class RegistrationService implements IRegistrationService{
 
     @Override
     public Registration update(Integer id, Registration registration) {
-        return repository.save(registration);
+        Registration persistedResgistration = findById(registration.getId());
+        if (persistedResgistration != null) {
+            persistedResgistration.setCourseOffering(registration.getCourseOffering());
+            persistedResgistration.setStudent(registration.getStudent());
+            return repository.save(persistedResgistration);
+        }
+        return registration;
     }
 
     @Override

@@ -10,6 +10,6 @@ public interface ICourseOfferingService {
      CourseOffering create(CourseOffering courseOffering);
      List<CourseOffering> findAll();
      CourseOffering findById(Integer id) ;
-     CourseOffering update(CourseOffering course);
+     CourseOffering update(Integer id, CourseOffering course);
      List<CourseOffering> getCourseOfferingByBlock(int id);
 }

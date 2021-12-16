@@ -30,7 +30,6 @@ public class AcademicBlockService implements IAcademicBlockService{
 
     @Override
     public AcademicBlock update(Integer id, AcademicBlock academicBlock) {
-
         AcademicBlock persistedAcademicBlock = findById(id);
         if (persistedAcademicBlock != null) {
             persistedAcademicBlock.setCode(academicBlock.getCode());
@@ -43,4 +42,5 @@ public class AcademicBlockService implements IAcademicBlockService{
 
         return null;
     }
+
 }

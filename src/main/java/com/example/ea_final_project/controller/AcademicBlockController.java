@@ -37,7 +37,6 @@ public class AcademicBlockController {
     @PreAuthorize("hasRole('ADMIN')")
     public AcademicBlock update(@PathVariable Integer id, @RequestBody AcademicBlock academicBlock) {
         return service.update(id, academicBlock);
-
     }
 
 }

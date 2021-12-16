@@ -29,8 +29,13 @@ public class RegistrationRequestService implements IRegistrationRequestService {
     }
 
     @Override
-    public RegistrationRequest update(RegistrationRequest request) {
-        return repository.save(request);
+    public RegistrationRequest update(Integer id, RegistrationRequest request) {
+        RegistrationRequest persistedRequest = findById(request.getId());
+        if (persistedRequest != null) {
+            persistedRequest.setPriority(request.getPriority());
+            return repository.save(persistedRequest);
+        }
+        return request;
     }
 
     @Override

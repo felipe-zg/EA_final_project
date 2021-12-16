@@ -42,7 +42,7 @@ public class RegistrationRequestController {
             newReq.setPriority(req.getPriority());
             newReq.setStatus(Status.SAVED);
                  System.out.println("Changing Priority  from="+newReq.getPriority()+"  to "+req.getPriority());
-            service.update(newReq);
+            service.update(newReq.getId(), newReq);
         }
         return service.getRegistrationRequestByStudentIdAndBlockId(studentId,blockId);
     }
@@ -62,11 +62,6 @@ public class RegistrationRequestController {
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('STUDENT')")
     public RegistrationRequest update(@PathVariable Integer id, @RequestBody  RegistrationRequest request) {
-        RegistrationRequest persistedRequest = service.findById(request.getId());
-        if (persistedRequest != null) {
-            persistedRequest.setPriority(request.getPriority());
-            return service.update(persistedRequest);
-        }
-        return request;
+        return service.update(id, request);
     }
 }
