@@ -20,10 +20,10 @@ public class RegstrationController {
 
     @Autowired
     private RegistrationService service;
-    @Autowired
-    CourseOfferingService courseOfferingService;
-    @Autowired
-    RegistrationRequestService registrationRequestService;
+//    @Autowired
+//    CourseOfferingService courseOfferingService;
+//    @Autowired
+//    RegistrationRequestService registrationRequestService;
 
     @GetMapping()
     @PreAuthorize("hasRole('ADMIN')")
@@ -37,10 +37,10 @@ public class RegstrationController {
         return service.findById(id);
     }
 
-    @GetMapping("/student/{id}")
-    public List<Registration> getRegistrationByStudentId(@PathVariable Integer id) {
-        return service.getRegistrationByStudentId(id);
-    }
+//    @GetMapping("/student/{id}")
+//    public List<Registration> getRegistrationByStudentId(@PathVariable Integer id) {
+//        return service.getRegistrationByStudentId(id);
+//    }
     @PostMapping("/saveRegistration")
     @PreAuthorize("hasRole('ADMIN')")
     public Registration create(@RequestBody Registration registration) {
@@ -59,31 +59,31 @@ public class RegstrationController {
         return service.update(id, registration);
     }
 
-    @GetMapping("/process")
-    public String processReqistrationRequest() {
-        List<CourseOffering> courseOfferingList = courseOfferingService.findAll();
-        for (CourseOffering co : courseOfferingList) {
-
-            int capacity = co.getCapacity();
-            List<RegistrationRequest> requests = service.getRegistrationRequestByCourseOfferingId(co.getId());
-            Set<RegistrationRequest> selectedRequest = new HashSet<>();
-            for (int i = 0; selectedRequest.size() < capacity && requests.size() > selectedRequest.size(); i++) {
-                Random r = new Random();
-                int s = r.nextInt(requests.size());
-                selectedRequest.add(requests.get(s));
-            }
-            for (RegistrationRequest r : selectedRequest) {
-                RegistrationRequest req = registrationRequestService.findById(r.getId());
-                req.setStatus(Status.RGISTERED);
-                registrationRequestService.update(req);
-                Registration registration= new Registration();
-                registration.setCourseOffering(co);
-                registration.setStudent(r.getStudent());
-                service.create(registration);
-            }
-        }
-
-        return "Registered!!";
-
-    }
+//    @GetMapping("/process")
+//    public String processReqistrationRequest() {
+//        List<CourseOffering> courseOfferingList = courseOfferingService.findAll();
+//        for (CourseOffering co : courseOfferingList) {
+//
+//            int capacity = co.getCapacity();
+//            List<RegistrationRequest> requests = service.getRegistrationRequestByCourseOfferingId(co.getId());
+//            Set<RegistrationRequest> selectedRequest = new HashSet<>();
+//            for (int i = 0; selectedRequest.size() < capacity && requests.size() > selectedRequest.size(); i++) {
+//                Random r = new Random();
+//                int s = r.nextInt(requests.size());
+//                selectedRequest.add(requests.get(s));
+//            }
+//            for (RegistrationRequest r : selectedRequest) {
+//                RegistrationRequest req = registrationRequestService.findById(r.getId());
+//                req.setStatus(Status.RGISTERED);
+//                registrationRequestService.update(req);
+//                Registration registration= new Registration();
+//                registration.setCourseOffering(co);
+//                registration.setStudent(r.getStudent());
+//                service.create(registration);
+//            }
+//        }
+//
+//        return "Registered!!";
+//
+//    }
 }
