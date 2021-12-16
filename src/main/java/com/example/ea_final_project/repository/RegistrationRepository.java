@@ -17,16 +17,16 @@ public interface RegistrationRepository extends JpaRepository<Registration, Inte
 //
 //    @Query("from RegistrationRequest req where req.student.id=:id ")
 //    List<RegistrationRequest> getRegistrationRequestBySdudentId(int id);
-
-
-
-    @Query("from RegistrationRequest req where req.courseOffering.id=:id ")
-    List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id);
-
-    @Query("from Registration reg  where reg.student.id=:id ")
-    List<Registration> getRegistrationByStudentId(int id);
-
-  //  @Query("select count(*) from Registration reg  reg.student.id")
-    List<Registration> getAvailableSeat(int id);
+//
+//
+//
+//    @Query("from RegistrationRequest req where req.courseOffering.id=:id ")
+//    List<RegistrationRequest> getRegistrationRequestByCourseOfferingId(int id);
+//
+//    @Query("from Registration reg  where reg.student.id=:id ")
+//    List<Registration> getRegistrationByStudentId(int id);
+//
+//  //  @Query("select count(*) from Registration reg  reg.student.id")
+//    List<Registration> getAvailableSeat(int id);
 
 }
