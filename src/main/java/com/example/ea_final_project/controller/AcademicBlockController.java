@@ -36,17 +36,7 @@ public class AcademicBlockController {
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public AcademicBlock update(@PathVariable Integer id, @RequestBody AcademicBlock academicBlock) {
-
-        AcademicBlock persistedAcademicBlock = service.findById(id);
-        if (persistedAcademicBlock != null) {
-            persistedAcademicBlock.setCode(academicBlock.getCode());
-            persistedAcademicBlock.setName(academicBlock.getName());
-            persistedAcademicBlock.setSemester(academicBlock.getSemester());
-            persistedAcademicBlock.setStartDate(academicBlock.getStartDate());
-            persistedAcademicBlock.setEnddate(academicBlock.getEnddate());
-            return service.update(persistedAcademicBlock);
-        }
-        return academicBlock;
+        return service.update(id, academicBlock);
 
     }
 
