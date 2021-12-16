@@ -2,6 +2,7 @@ package com.example.ea_final_project.service;
 
 import com.example.ea_final_project.model.Course;
 import com.example.ea_final_project.model.CourseOffering;
+import com.example.ea_final_project.model.Student;
 
 import java.util.List;
 
@@ -10,4 +11,5 @@ public interface ICourseOfferingService {
      List<CourseOffering> findAll();
      CourseOffering findById(Integer id) ;
      CourseOffering update(CourseOffering course);
+     List<CourseOffering> getCourseOfferingByBlock(int id);
 }

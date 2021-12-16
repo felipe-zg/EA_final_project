@@ -1,5 +1,6 @@
 package com.example.ea_final_project.service;
 
+import com.example.ea_final_project.model.CourseOffering;
 import com.example.ea_final_project.model.RegistrationEvent;
 import com.example.ea_final_project.model.RegistrationRequest;
 import com.example.ea_final_project.repository.RegistrationEventRepository;
@@ -30,5 +31,21 @@ public class RegistrationRequestService implements IRegistrationRequestService {
     @Override
     public RegistrationRequest update(RegistrationRequest request) {
         return repository.save(request);
+    }
+
+    @Override
+    public RegistrationRequest getRegistrationRequestById(int id) {
+        return repository.getRegistrationRequestById(id);
+    }
+
+
+    @Override
+    public List<RegistrationRequest> getRegistrationRequestBySdudentId(int id) {
+        return repository.getRegistrationRequestBySdudentId(id);
+    }
+
+    @Override
+    public List<RegistrationRequest> getRegistrationRequestByStudentIdAndBlockId(int studentId, int blockId) {
+        return repository.getRegistrationRequestByStudentIdAndBlockId(studentId,blockId);
     }
 }

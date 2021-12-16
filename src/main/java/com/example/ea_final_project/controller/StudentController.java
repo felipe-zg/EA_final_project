@@ -1,8 +1,10 @@
 package com.example.ea_final_project.controller;
 
 import com.example.ea_final_project.model.Faculty;
+import com.example.ea_final_project.model.RegistrationEvent;
 import com.example.ea_final_project.model.Student;
 import com.example.ea_final_project.service.FacultyService;
+import com.example.ea_final_project.service.RegistrationEventService;
 import com.example.ea_final_project.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -15,6 +17,10 @@ import java.util.List;
 public class StudentController {
     @Autowired
     StudentService service;
+
+    @Autowired
+    RegistrationEventService registrationEventService;
+
     @GetMapping
     public List<Student> findAll() {
         return service.findAll();
@@ -24,6 +30,11 @@ public class StudentController {
     public Student findById(@PathVariable Integer id) {
         return service.findById(id);
     }
+    @GetMapping("registration-events/latest")
+    public List<RegistrationEvent> getLatestRegistrationEvents() {
+        return registrationEventService.findAll();
+    }
+
 
     @PostMapping("/students")
     public Student create(@RequestBody Student student) {
@@ -42,4 +53,5 @@ public class StudentController {
         }
         return student;
     }
+
 }

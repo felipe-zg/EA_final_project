@@ -31,8 +31,9 @@ public class RegistrationGroupService implements IRegistrationGroupService{
     @Override
     public RegistrationGroup update(Integer id, RegistrationGroup registrationGroup) {
         RegistrationGroup persistedGroup= repository.getById(registrationGroup.getId());
-      // registrationGroup.setStudents(registrationGroup.getStudents());
+      registrationGroup.setStudents(registrationGroup.getStudents());
         persistedGroup.setBlocks(registrationGroup.getBlocks());
+        persistedGroup.setGroupName(registrationGroup.getGroupName());
         return repository.save(registrationGroup);
     }
 

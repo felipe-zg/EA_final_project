@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Table(name = "block")
 public class AcademicBlock {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String code;

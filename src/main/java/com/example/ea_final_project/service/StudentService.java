@@ -32,4 +32,18 @@ public class StudentService implements IStudentService{
     public Student update(Student student) {
         return repository.save(student);
     }
+
+    @Override
+    public List<Student> getStudentsByGroup(int id) {
+        try {
+            return repository.getAllStudentsWithGroup(id);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return  null;
+        }
+
+    }
+
+
 }
