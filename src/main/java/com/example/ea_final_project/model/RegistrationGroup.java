@@ -6,20 +6,24 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @Entity
 public class RegistrationGroup {
     @Id
-    @GeneratedValue
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private  String groupName;
+    @Transient
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<AcademicBlock> blocks = new ArrayList<>();
+    @ManyToMany
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    private Collection<AcademicBlock> blocks = new ArrayList<>();
-//    @ManyToMany(cascade = CascadeType.PERSIST)
-//    private Collection<Student> students = new ArrayList<>();
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<Student> students = new ArrayList<>();
+
+    @ManyToMany
     private Collection<RegistrationEvent> registrationEvents = new ArrayList<>();
 
 //    public void addStudent(Student student) {
