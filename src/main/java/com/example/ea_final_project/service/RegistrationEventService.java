@@ -30,4 +30,20 @@ public class RegistrationEventService implements IRegistrationEventService{
     public RegistrationEvent update(RegistrationEvent registrationEvent) {
         return eventRepository.save(registrationEvent);
     }
+
+    @Override
+    public void deleteById(Integer eventId) {
+        eventRepository.deleteById(eventId);
+    }
+    @Autowired
+    RegistrationEventRepository repository;
+
+
+    public List<RegistrationEvent> getLatestRegistationEvents(String studId) {
+        return repository.getLatestRegistationEvents(studId);
+    }
+    @Override
+    public RegistrationEvent findFirstEvent(){
+        return repository.findEventOrderByStartDateDesc();
+    }
 }
