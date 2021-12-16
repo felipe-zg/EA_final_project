@@ -27,10 +27,7 @@ public class StudentController {
     public Student findById(@PathVariable Integer id) {
         return service.findById(id);
     }
-    @GetMapping("registration-events/latest")
-    public List<RegistrationEvent> getLatestRegistrationEvents() {
-        return registrationEventService.findAll();
-    }
+
 
 
     @PostMapping

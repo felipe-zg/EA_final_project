@@ -33,10 +33,18 @@ public class RegistrationEventController {
     public RegistrationEvent update(@PathVariable Integer id, @RequestBody RegistrationEvent registrationEvent) {
         RegistrationEvent persistedEvent = service.findById(registrationEvent.getId());
         if (persistedEvent != null) {
-            persistedEvent.setStartDate(registrationEvent.getStartDate());
-            persistedEvent.setEndDate(registrationEvent.getEndDate());
+            if (registrationEvent.getStartDate() != null){
+                persistedEvent.setStartDate(registrationEvent.getStartDate());
+        }
+           if(registrationEvent.getEndDate()!=null){
+               persistedEvent.setEndDate(registrationEvent.getEndDate());
+           }
             return service.update(persistedEvent);
         }
         return registrationEvent;
+    }
+    @GetMapping("/latest")
+    public List<RegistrationEvent> getLatestRegistrationEvents( String studId) {
+        return service.getLatestRegistationEvents(studId);
     }
 }

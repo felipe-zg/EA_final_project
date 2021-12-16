@@ -19,9 +19,6 @@ public interface RegistrationRequestRepository extends JpaRepository<Registratio
     @Query("from RegistrationRequest req where req.student.id=:id ")
     List<RegistrationRequest> getRegistrationRequestBySdudentId(int id);
 
-//    @Query("from RegistrationRequest req where req.student.id=:id ")
-//    List<RegistrationRequest> getRegistrationRequestBySdudentId(int id);
-
     @Query("from RegistrationRequest req where req.student.id=:studentId and req.courseOffering.block.id=:blockId ")
     List<RegistrationRequest> getRegistrationRequestByStudentIdAndBlockId(int studentId,int blockId);
 

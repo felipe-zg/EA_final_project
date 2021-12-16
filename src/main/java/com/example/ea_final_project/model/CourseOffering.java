@@ -24,10 +24,9 @@ public class CourseOffering {
     @ManyToOne(cascade = CascadeType.MERGE)
     private AcademicBlock block;
     @OneToMany
-    @JoinColumn(name="course_offering_id")
     private List<Registration> registrations = new ArrayList<>();
-    @OneToMany
-   // @JoinColumn(name="course_offering_id")
+    @OneToMany(mappedBy = "courseOffering")
+
     private List<RegistrationRequest> registrationsRequests = new ArrayList<>();
 
     public CourseOffering(String code, int capacity, Course course, Faculty faculty, AcademicBlock block) {
